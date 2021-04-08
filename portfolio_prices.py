@@ -114,6 +114,8 @@ def get_portfolio_prices(stocks: list, funds: list, etfs: list, start_date: str,
     data_frames = [*data_frames_stocks, *data_frames_funds, *data_frames_etfs]
 
     assets = [*stocks, *funds, *etfs]
+    
+    columns = ['Open', 'High', 'Low', 'Close']
 
     portfolio_prices = build_multi_index_data_frame(
         data_frames, assets, ['Close', 'Open', 'High', 'Low'])
