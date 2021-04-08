@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-04-08T13:43:29.165Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36" etag="VFMutvGQ07zIHLAmmbYS" version="14.5.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-04-08T13:49:03.586Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36" etag="xCcFaLme3aCHpkvL3BeY" version="14.5.8" type="github">
   <diagram id="_Pl7i_hHXp13BwxScJFl" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -102,6 +102,18 @@
         </mxCell>
         <mxCell id="mf0w1EBOHu-Bmzb6V4Uy-39" value="Investpy" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="45" y="163" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mf0w1EBOHu-Bmzb6V4Uy-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="mf0w1EBOHu-Bmzb6V4Uy-40" target="mf0w1EBOHu-Bmzb6V4Uy-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mf0w1EBOHu-Bmzb6V4Uy-40" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#314354;fillColor=#647687;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="397.5" y="660" width="195" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="mf0w1EBOHu-Bmzb6V4Uy-41" value="investing-bi" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="432.5" y="690" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mf0w1EBOHu-Bmzb6V4Uy-42" value="Github" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="397.5" y="660" width="40" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
