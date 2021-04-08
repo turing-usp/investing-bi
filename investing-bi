@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-04-08T13:32:03.810Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36" etag="j3C86jjFvFh1LWJrdXVb" version="14.5.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-04-08T13:43:29.165Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36" etag="VFMutvGQ07zIHLAmmbYS" version="14.5.8" type="github">
   <diagram id="_Pl7i_hHXp13BwxScJFl" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -25,7 +25,7 @@
           <mxGeometry x="82.5" y="182.5" width="85" height="105" as="geometry" />
         </mxCell>
         <mxCell id="mf0w1EBOHu-Bmzb6V4Uy-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="45" y="450" width="160" height="135" as="geometry" />
+          <mxGeometry x="45" y="430" width="160" height="155" as="geometry" />
         </mxCell>
         <mxCell id="mf0w1EBOHu-Bmzb6V4Uy-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="mf0w1EBOHu-Bmzb6V4Uy-5" target="mf0w1EBOHu-Bmzb6V4Uy-7">
           <mxGeometry relative="1" as="geometry">
@@ -65,13 +65,13 @@
         <mxCell id="mf0w1EBOHu-Bmzb6V4Uy-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="mf0w1EBOHu-Bmzb6V4Uy-19" target="mf0w1EBOHu-Bmzb6V4Uy-22">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="770" y="320" />
-              <mxPoint x="670" y="320" />
+              <mxPoint x="770" y="310" />
+              <mxPoint x="670" y="310" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="mf0w1EBOHu-Bmzb6V4Uy-19" value="Glue" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="710" y="240" width="120" height="60" as="geometry" />
+          <mxGeometry x="710" y="220" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="mf0w1EBOHu-Bmzb6V4Uy-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="mf0w1EBOHu-Bmzb6V4Uy-20" target="mf0w1EBOHu-Bmzb6V4Uy-19">
           <mxGeometry relative="1" as="geometry" />
@@ -93,6 +93,15 @@
         </mxCell>
         <mxCell id="mf0w1EBOHu-Bmzb6V4Uy-33" value="Dashboard" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="1050" y="303.75" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mf0w1EBOHu-Bmzb6V4Uy-37" value="AWS" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="350" y="170" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mf0w1EBOHu-Bmzb6V4Uy-38" value="Google Sheet" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="430" width="85" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mf0w1EBOHu-Bmzb6V4Uy-39" value="Investpy" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="163" width="40" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
