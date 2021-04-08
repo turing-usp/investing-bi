@@ -6,7 +6,21 @@ import numpy as np
 today = datetime.today().strftime("%d/%m/%Y")
 
 
-def get_assets_data_frames(assets, asset_function, country, start_date, end_date):
+def get_assets_data_frames(assets: list, asset_function: list, country: str, start_date: str, end_date: str) -> list:
+    """
+    Get asset OHLCV values from investpy based on one country.
+
+    Args: 
+    - assets (list): assets to be downloaded
+    - asset_function (list): investpy function that get historical data
+    - country (str): origin country of the assets
+    - start_date (str): initial date of the historical data
+    - end_date (str): end date of the historical data
+
+    Returns:
+    - data_frame (list<pd.DataFrame>): assets data frames
+    
+    """
 
     data_frames = []
 
@@ -22,7 +36,28 @@ def get_assets_data_frames(assets, asset_function, country, start_date, end_date
     return data_frames
 
 
-def build_multi_index_tuples(header, sub_header):
+def build_multi_index_tuples(header: list, sub_header: list) -> list:
+    """
+    Build list of tuples that construct a multiheader data frame.
+
+    Args:
+    - header (list): first header columns
+    - sub_header (list): second header columns
+
+    Returns:
+    - tuples (list): multiheader pairs
+
+    >>> build_multi_index_tuples(['Open', 'Close'], ['BPAC11', 'OIBR3', 'PETR4', 'MGLU3'])
+    >>> [('Open', 'BPAC11'),
+         ('Open', 'OIBR3'),
+         ('Open', 'PETR4'),
+         ('Open', 'MGLU3'),
+         ('Close', 'BPAC11'),
+         ('Close', 'OIBR3'),
+         ('Close', 'PETR4'),
+         ('Close', 'MGLU3')]
+
+    """
 
     tuples = []
 
@@ -33,9 +68,17 @@ def build_multi_index_tuples(header, sub_header):
     return tuples
 
 
-def build_multi_index_data_frame(data_frames, stocks, columns):
+def build_multi_index_data_frame(data_frames: list, sub_header: list, header_columns: list) -> pd.DataFrame:
+    """
+    Build a multiheader data frame. With Colums as header and assets as sub header.
 
-    tuples = build_multi_index_tuples(columns, stocks)
+    Args:
+    - data_frames (list): list of data frames.
+    - sub_header (list): sub header columns.
+    - header_columns (list): header columns.
+    """
+
+    tuples = build_multi_index_tuples(header_columns, sub_header)
 
     multi_header = pd.MultiIndex.from_tuples(tuples)
 
@@ -46,8 +89,21 @@ def build_multi_index_data_frame(data_frames, stocks, columns):
     return df
 
 
-def get_portfolio_prices(stocks, funds, etfs, start_date, end_date=today):
+def get_portfolio_prices(stocks: list, funds: list, etfs: list, start_date: str, end_date=today) -> pd.DataFrame:
+    """
+    Get multiheader asset prices data frame. OHLC as principal header and asset names as sub header.
 
+    Args: 
+    - stocks (list): stock names
+    - funds (list): funds names
+    - etfs (str): etfs names
+    - start_date (str): initial date of the historical data
+    - end_date (str): end date of the historical data
+
+    Returns:
+    - data_frame (list<pd.DataFrame>): assets data frames
+    
+    """
     data_frames_stocks = get_assets_data_frames(
         stocks, inv.get_stock_historical_data, 'brazil', start_date=start_date, end_date=end_date)
     data_frames_funds = get_assets_data_frames(
@@ -60,6 +116,6 @@ def get_portfolio_prices(stocks, funds, etfs, start_date, end_date=today):
     assets = [*stocks, *funds, *etfs]
 
     portfolio_prices = build_multi_index_data_frame(
-        data_frames, assets, columns)
+        data_frames, assets, ['Close', 'Open', 'High', 'Low'])
 
     return portfolio_prices
