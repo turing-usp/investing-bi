@@ -161,7 +161,7 @@ class PortfolioPrices(object):
                 continue
 
         assets = [assets_names for assets_names in assets_search_dict.values()]
-
+                
         columns = ['Open', 'High', 'Low', 'Close']
 
         portfolio_prices = self._build_multi_index_data_frame(
