@@ -18,15 +18,12 @@ class PortfolioPrices(object):
     - refresh_assets_prices (None): updates historical data up to current date (to avoid creating a new object)
     - get_portfolio_prices (pd.DataFrame): returns historical data in a DataFrame
     """
-    def __init__(self, assets_search_dict: dict, start_date: str, end_date: str):
+    def __init__(self, assets_search_dict: dict, start_date: str, end_date=None: str):
+        if end_date is None: 
+            end_date = datetime.today().strftime("%d/%m/%Y")
         self._assets_search_dict = assets_search_dict
         self._start_date = start_date
         self.portfolio_prices = self._fetch_portfolio_prices(assets_search_dict, start_date, end_date)
-
-    
-    def __init__(self, assets_search_dict: dict, start_date: str):
-        today = datetime.today().strftime("%d/%m/%Y")
-        self.__init__(assets_search_dict, start_date, today)
 
     
     def refresh_assets_prices(self):
