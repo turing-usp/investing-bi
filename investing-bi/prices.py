@@ -18,26 +18,23 @@ class PortfolioPrices(object):
     - refresh_assets_prices (None): updates historical data up to current date (to avoid creating a new object)
     - get_portfolio_prices (pd.DataFrame): returns historical data in a DataFrame
     """
-    def __init__(self, assets_search_dict: dict, start_date: str, end_date: str):
+
+    def __init__(self, assets_search_dict: dict, start_date: str, end_date: str = None):
+        if end_date is None:
+            end_date = datetime.today().strftime("%d/%m/%Y")
         self._assets_search_dict = assets_search_dict
         self._start_date = start_date
-        self.portfolio_prices = self._fetch_portfolio_prices(assets_search_dict, start_date, end_date)
+        self.portfolio_prices = self._fetch_portfolio_prices(
+            assets_search_dict, start_date, end_date)
 
-    
-    def __init__(self, assets_search_dict: dict, start_date: str):
-        today = datetime.today().strftime("%d/%m/%Y")
-        self.__init__(assets_search_dict, start_date, today)
-
-    
     def refresh_assets_prices(self):
         today = datetime.today().strftime("%d/%m/%Y")
-        self.portfolio_prices = self._fetch_portfolio_prices(self._assets_search_dict, self._start_date, today)
+        self.portfolio_prices = self._fetch_portfolio_prices(
+            self._assets_search_dict, self._start_date, today)
 
-    
     def get_portfolio_prices(self):
         return self.portfolio_prices
 
-    
     def _get_assets_data_frames(self, assets: list, asset_function: list, country: str, start_date: str, end_date: str) -> list:
         """
         Get asset OHLCV values from investpy based on one country.
@@ -51,7 +48,7 @@ class PortfolioPrices(object):
 
         Returns:
         - data_frame (list<pd.DataFrame>): assets data frames
-        
+
         """
 
         data_frames = []
@@ -66,7 +63,6 @@ class PortfolioPrices(object):
             data_frames.append(data_frame)
 
         return data_frames
-
 
     def _build_multi_index_tuples(self, header: list, sub_header: list) -> list:
         """
@@ -99,7 +95,6 @@ class PortfolioPrices(object):
 
         return tuples
 
-
     def _build_multi_index_data_frame(self, data_frames: list, sub_header: list, header_columns: list) -> pd.DataFrame:
         """
         Build a multiheader data frame. With Colums as header and assets as sub header.
@@ -120,7 +115,6 @@ class PortfolioPrices(object):
 
         return df
 
-
     def _fetch_portfolio_prices(self, assets_search_dict: dict, start_date: str, end_date: str) -> pd.DataFrame:
         """
         Get multiheader asset prices data frame. OHLC as principal header and asset names as sub header.
@@ -133,37 +127,44 @@ class PortfolioPrices(object):
 
         Returns:
         - data_frame (list<pd.DataFrame>): assets data frames
-        
+
         """
         data_frames = []
 
         for asset_type, assets_names in assets_search_dict.items():
-            
-            if asset_type is "stocks":
+
+            if asset_type == "stocks":
+
+                stocks = assets_search_dict['stocks']
+
                 data_frames_stocks = self._get_assets_data_frames(
                     stocks, inv.get_stock_historical_data, 'brazil', start_date=start_date, end_date=end_date)
                 data_frames += [*data_frames_stocks]
                 continue
-        
-            if asset_type is "funds":
+
+            if asset_type == "funds":
+
+                funds = assets_search_dict['funds']
+
                 data_frames_funds = self._get_assets_data_frames(
                     funds, inv.get_fund_historical_data, 'brazil', start_date=start_date, end_date=end_date)
                 data_frames += [*data_frames_funds]
                 continue
-        
-            if asset_type is "etfs":
+
+            if asset_type == "etfs":
+
+                etfs = assets_search_dict['etfs']
+
                 data_frames_etfs = self._get_assets_data_frames(
                     etfs, inv.get_etf_historical_data, 'brazil', start_date=start_date, end_date=end_date)
                 data_frames += [*data_frames_etfs]
                 continue
 
-        data_frames = [*data_frames_stocks, *data_frames_funds, *data_frames_etfs]
+        assets = [assets_names for assets_names in assets_search_dict.values()]
 
-        assets = [*assets_names for assets_names in assets_search_dict.values()]
-        
         columns = ['Open', 'High', 'Low', 'Close']
 
         portfolio_prices = self._build_multi_index_data_frame(
-            data_frames, assets, ['Close', 'Open', 'High', 'Low'])
+            data_frames, *assets, ['Close', 'Open', 'High', 'Low'])
 
         return portfolio_prices
