@@ -41,7 +41,7 @@ class Portfolio:
             returns['Returns'].loc[time] = np.dot(
                 self.prices['Close'].pct_change().loc[time], weights.loc[time])
 
-        return returns[self._first_date:]
+        return returns[self._first_date:]['Returns']
 
     def get_cumulative_returns(self):
 
